@@ -73,3 +73,48 @@ Tests should be organized as:
 - Unit tests: `src/**/*.test.{ts,tsx}`
 - Integration tests: `src/**/*.integration.test.{ts,tsx}`
 - E2E tests: `tests/` or `e2e/` directory
+
+## Testing Guidelines
+
+**All tests MUST follow these rules:**
+
+1. **Japanese Test Descriptions**: All test descriptions must be written in Japanese
+   ```typescript
+   // ✅ Required
+   describe('TodoItemコンポーネント', () => {
+     it('Todo内容を表示する', () => {})
+   })
+   
+   // ❌ Not allowed
+   describe('TodoItem Component', () => {
+     it('renders todo content', () => {})
+   })
+   ```
+
+2. **AAA Pattern Comments**: Every test case must include Arrange-Act-Assert comments
+   ```typescript
+   it('新しいTodoが追加される', () => {
+     // Arrange - テストデータと初期状態を準備
+     const input = screen.getByTestId('add-todo-input')
+     
+     // Act - テスト対象の操作を実行
+     fireEvent.change(input, { target: { value: 'テスト内容' } })
+     
+     // Assert - 期待される結果を検証
+     expect(screen.getByText('テスト内容')).toBeInTheDocument()
+   })
+   ```
+
+3. **Import beforeEach**: Always import `beforeEach` from vitest when using it
+   ```typescript
+   import { describe, it, expect, vi, beforeEach } from 'vitest'
+   ```
+
+4. **Mock Cleanup**: Always clear mocks in beforeEach
+   ```typescript
+   beforeEach(() => {
+     vi.clearAllMocks()
+   })
+   ```
+
+For detailed testing guidelines, see `docs/testing-guidelines.md`

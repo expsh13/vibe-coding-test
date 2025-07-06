@@ -1,10 +1,10 @@
-import { Todo } from '../types/todo'
-import { TodoItem } from './TodoItem'
+import type { Todo } from "../types/todo";
+import { TodoItem } from "./TodoItem";
 
 interface TodoListProps {
-  todos: Todo[]
-  onToggle: (id: string) => void
-  onDelete: (id: string) => void
+  todos: Todo[];
+  onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 export function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
@@ -13,7 +13,7 @@ export function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
       <div className="todo-list-empty" data-testid="todo-list-empty">
         Todoがありません
       </div>
-    )
+    );
   }
 
   return (
@@ -27,5 +27,5 @@ export function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
         />
       ))}
     </div>
-  )
+  );
 }

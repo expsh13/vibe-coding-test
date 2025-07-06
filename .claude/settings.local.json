@@ -5,7 +5,8 @@
       "Bash(mv:*)",
       "Bash(pnpm test:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(pnpm lint:*)"
     ],
     "deny": []
   }

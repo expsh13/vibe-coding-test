@@ -1,25 +1,29 @@
-import { useState } from 'react'
-import { TodoPriority } from '../types/todo'
+import { useState } from "react";
+import type { TodoPriority } from "../types/todo";
 
 interface AddTodoProps {
-  onAdd: (content: string, priority: TodoPriority) => void
+  onAdd: (content: string, priority: TodoPriority) => void;
 }
 
 export function AddTodo({ onAdd }: AddTodoProps) {
-  const [content, setContent] = useState('')
-  const [priority, setPriority] = useState<TodoPriority>('medium')
+  const [content, setContent] = useState("");
+  const [priority, setPriority] = useState<TodoPriority>("medium");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (content.trim()) {
-      onAdd(content.trim(), priority)
-      setContent('')
-      setPriority('medium')
+      onAdd(content.trim(), priority);
+      setContent("");
+      setPriority("medium");
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="add-todo-form" data-testid="add-todo-form">
+    <form
+      onSubmit={handleSubmit}
+      className="add-todo-form"
+      data-testid="add-todo-form"
+    >
       <div className="form-group">
         <label htmlFor="todo-input">Todo内容</label>
         <input
@@ -55,5 +59,5 @@ export function AddTodo({ onAdd }: AddTodoProps) {
         追加
       </button>
     </form>
-  )
+  );
 }
