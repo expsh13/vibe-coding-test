@@ -6,7 +6,9 @@
       "Bash(pnpm test:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(pnpm lint:*)"
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm add:*)",
+      "Bash(npx msw init:*)"
     ],
     "deny": []
   }

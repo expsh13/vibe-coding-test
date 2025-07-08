@@ -5,7 +5,7 @@ export interface Todo {
   content: string;
   completed: boolean;
   priority: "low" | "medium" | "high";
-  createdAt: Date;
+  createdAt: string; // JSON通信なので文字列
 }
 
 // モックデータ
@@ -15,14 +15,14 @@ const todos: Todo[] = [
     content: "モックTodo1",
     completed: false,
     priority: "high",
-    createdAt: new Date("2025-07-01"),
+    createdAt: "2025-07-01T00:00:00.000Z",
   },
   {
     id: "2",
     content: "モックTodo2",
     completed: true,
     priority: "medium",
-    createdAt: new Date("2025-07-02"),
+    createdAt: "2025-07-02T00:00:00.000Z",
   },
 ];
 
@@ -37,7 +37,7 @@ export const handlers = [
     const newTodo = (await request.json()) as Omit<Todo, "id" | "createdAt">;
     const todo: Todo = {
       id: crypto.randomUUID(),
-      createdAt: new Date(),
+      createdAt: new Date().toISOString(),
       ...newTodo,
     };
     todos.push(todo);
