@@ -9,5 +9,12 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/tests/**',          // Playwrightテストを除外
+      '**/tests-examples/**', // Playwrightサンプルを除外
+      '**/*.spec.ts',         // .specファイルを除外
+    ],
   },
 })

@@ -46,5 +46,10 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "pnpm": {
+    "executionEnv": {
+      "nodeVersion": "22.0.0"
+    }
   }
 }
